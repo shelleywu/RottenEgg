@@ -6,8 +6,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -78,10 +81,10 @@ public class DetailMovieFragment extends Fragment {
         //Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
-        /**ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);**/
+        actionBar.setDisplayShowHomeEnabled(true);
 
         title = (TextView)rootView.findViewById(R.id.movie_title);
         overview = (TextView)rootView.findViewById(R.id.movie_overview);
@@ -160,7 +163,7 @@ public class DetailMovieFragment extends Fragment {
         return rootView;
     }
 
-    /**@Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -173,7 +176,7 @@ public class DetailMovieFragment extends Fragment {
             getActivity().finish();
         //}
         return super.onOptionsItemSelected(item);
-    }**/
+    }
 
     public class JSONTask extends AsyncTask<String, String, String> {
 
