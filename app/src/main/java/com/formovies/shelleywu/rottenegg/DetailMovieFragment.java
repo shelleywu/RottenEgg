@@ -75,6 +75,14 @@ public class DetailMovieFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detail_movie, container, false);
 
+        //Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
+        /**ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);**/
+
         title = (TextView)rootView.findViewById(R.id.movie_title);
         overview = (TextView)rootView.findViewById(R.id.movie_overview);
         poster = (ImageView)rootView.findViewById(R.id.movie_poster);
@@ -152,6 +160,20 @@ public class DetailMovieFragment extends Fragment {
         return rootView;
     }
 
+    /**@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        //int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+
+        //if (id==android.R.id.home) {
+            getActivity().finish();
+        //}
+        return super.onOptionsItemSelected(item);
+    }**/
 
     public class JSONTask extends AsyncTask<String, String, String> {
 
