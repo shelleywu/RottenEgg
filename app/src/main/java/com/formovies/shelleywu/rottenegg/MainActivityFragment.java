@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -58,12 +59,23 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_movie_list, container, false);
 
+        if (savedInstanceState != null)
+        {
+            mMovies = (List<Movie>)savedInstanceState.get("listofmovies");
+        }
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_movie_list_recyclerView);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         new JSONTask().execute(Config.MOVIES + Config.MOVIE_API_KEY + Config.SORT_BY_POPULARITY);
         setHasOptionsMenu(true);
         return rootView;
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList("listofmovies", (ArrayList<? extends Parcelable>) mMovies);
+        super.onSaveInstanceState(outState);
+    }
+
 
     public void update() {
         if (mAdapter == null) {
@@ -95,7 +107,6 @@ public class MainActivityFragment extends Fragment {
 
                 sortFavorites();
                 return true;
-
         }
 
         return true;
@@ -153,8 +164,6 @@ public class MainActivityFragment extends Fragment {
         }**/
 
     }
-
-
 
     @Override
     public void onAttach(Context context) {
