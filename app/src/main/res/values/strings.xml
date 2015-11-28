@@ -5,9 +5,10 @@
     <string name="popular">Most Popular</string>
     <string name="highestRated">Highest Rated</string>
     <string name="favorite">Your Favorites</string>
-    <string name="title_activity_movie_description">MovieDescription</string>
+    <string name="title_activity_movie_description">Movie Description</string>
     <string name="player_error">Error initializing YouTube player</string>
     <string name="movie_trailer">Play Trailer</string>
     <string name="movie_reviews">Reviews</string>
     <string name="title_activity_video_player">VideoPlayer</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
